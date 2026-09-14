@@ -672,22 +672,19 @@ delta_temp_F = (
 # DASHBOARD HEADER
 # =========================================================
 
-st.title(
-    "Insights on CO₂ & Greenhouse Gas Emissions"
-)
-
-
-st.markdown(
+st.html(
     """
-    <p class="dashboard-intro">
+    <div class="dashboard-header">
+        <div class="dashboard-title">
+            Insights on CO₂ & Greenhouse Gas Emissions
+        </div>
 
-    This dashboard explores how greenhouse gas (GHG)
-    and CO₂ emissions evolve over time across continents,
-    GDP per person, and fuel type.
-
-    </p>
-    """,
-    unsafe_allow_html=True,
+        <div class="dashboard-description">
+            This dashboard explores how greenhouse gas (GHG) and CO₂ emissions
+            evolve over time across continents, GDP per person, and fuel type.
+        </div>
+    </div>
+    """
 )
 
 
@@ -746,21 +743,19 @@ st.divider()
 
 with st.container(border=True):
 
-    st.subheader(
-        "Global Annual GHG Emissions Including Land Use"
-    )
+    st.html(
+        """
+        <div class="figure-header">
+            <div class="figure-title">
+                Global Annual GHG Emissions Including Land Use
+            </div>
 
-    st.write(
-        "Annual greenhouse gas emissions including "
-        "land-use change. Values are in million tonnes "
-        "(Mt) of CO₂-equivalent per year."
-    )
-
-
-    available_years = set(
-        df_co2["year"]
-        .dropna()
-        .astype(int)
+            <div class="figure-description">
+                Annual greenhouse gas emissions including land-use change.
+                Values are in million tonnes (Mt) of CO₂-equivalent per year.
+            </div>
+        </div>
+        """
     )
 
 
@@ -779,11 +774,20 @@ with st.container(border=True):
     ]
 
 
-    selected_year = st.radio(
-        "Select a year",
-        options=map_year_options,
-        horizontal=True,
-    )
+    st.html(
+    """
+    <div class="year-label">
+        Select a year
+    </div>
+    """
+)
+
+selected_year = st.radio(
+    "Select a year",
+    options=map_year_options,
+    horizontal=True,
+    label_visibility="collapsed",
+)
 
 
     df_ghg_map = df_co2.loc[
