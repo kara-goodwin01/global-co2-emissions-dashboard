@@ -907,7 +907,7 @@ fig_map.update_layout(
     )
 
 
-    st.plotly_chart(
+st.plotly_chart(
         fig_map,
         width="stretch",
         theme=None
