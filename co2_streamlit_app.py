@@ -131,17 +131,6 @@ st.markdown(
     margin-bottom: 5px;
     }}
 
-    /* Center horizontal radio buttons */
-    div[data-testid="stRadio"] {{
-        width: 100%;
-    }}
-
-    div[data-testid="stRadio"] div[role="radiogroup"] {{
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
-        gap: 18px;
-    }}
     
     .dashboard-intro {{
         text-align: center;
@@ -777,18 +766,24 @@ with st.container(border=True):
     ]
 
     st.html(
-        """
-        <div class="year-label">
-            Select a year
-        </div>
-        """
+    """
+    <div class="year-label">
+        Select a year
+    </div>
+    """
     )
 
-    selected_year = st.radio(
-        "Select a year",
-        options=map_year_options,
-        horizontal=True,
-        label_visibility="collapsed",
+    radio_left, radio_center, radio_right = st.columns(
+    [1, 0.65, 1]
+    )
+
+    with radio_center:
+        selected_year = st.radio(
+            "Select a year",
+            options=map_year_options,
+            horizontal=True,
+            label_visibility="collapsed",
+            key="map_year",
     )
 
     df_ghg_map = df_co2.loc[
