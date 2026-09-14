@@ -810,14 +810,14 @@ dff_map = df_ghg_map[
     ]
 
 
-    min_emissions = float(
+min_emissions = float(
         df_ghg_map[
             "total_ghg"
         ].min()
     )
 
 
-    max_emissions = float(
+max_emissions = float(
         df_ghg_map[
             "total_ghg"
         ].max()
