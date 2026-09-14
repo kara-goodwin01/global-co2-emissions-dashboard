@@ -131,14 +131,17 @@ st.markdown(
     margin-bottom: 5px;
     }}
 
-/* Center horizontal radio buttons */
-div[data-testid="stRadio"] > div {{
-    justify-content: center;
-}}
+    /* Center horizontal radio buttons */
+    div[data-testid="stRadio"] {{
+        width: 100%;
+    }}
 
-div[data-testid="stRadio"] [role="radiogroup"] {{
-    justify-content: center;
-}}
+    div[data-testid="stRadio"] div[role="radiogroup"] {{
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 18px;
+    }}
     
     .dashboard-intro {{
         text-align: center;
