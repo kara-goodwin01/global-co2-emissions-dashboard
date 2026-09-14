@@ -152,6 +152,25 @@ st.markdown(
     margin: 0 auto 12px auto;
     max-width: 95%;
     }}
+
+    .filter-header {{
+    text-align: center;
+    margin-bottom: 18px;
+    }}
+
+    .filter-title {{
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    }}
+
+    .filter-description {{
+    font-size: 0.95rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 8px;
+    }}
     
     .dashboard-intro {{
         text-align: center;
@@ -920,20 +939,31 @@ st.divider()
 # CONTINENT FILTER
 # =========================================================
 
-st.subheader(
-    "Explore Emissions by Continent"
+st.html(
+    """
+    <div class="filter-header">
+        <div class="filter-title">
+            Explore Emissions by Continent
+        </div>
+
+        <div class="filter-description">
+            Filter by continent (applies to the bubble and line charts)
+        </div>
+    </div>
+    """
 )
 
-
-continents_selected = st.multiselect(
-
-    "Filter by continent "
-    "(applies to the bubble and line charts)",
-
-    options=CONTINENTS,
-
-    default=CONTINENTS,
+filter_left, filter_center, filter_right = st.columns(
+    [1, 3, 1]
 )
+
+with filter_center:
+    continents_selected = st.multiselect(
+        "Filter by continent",
+        options=CONTINENTS,
+        default=CONTINENTS,
+        label_visibility="collapsed",
+    )
 
 
 years_all = sorted(
