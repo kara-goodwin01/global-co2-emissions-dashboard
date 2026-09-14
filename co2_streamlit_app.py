@@ -131,6 +131,27 @@ st.markdown(
     margin-bottom: 5px;
     }}
 
+    .small-figure-header {{
+    text-align: center;
+    margin-bottom: 18px;
+    }}
+
+    .small-figure-title {{
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    }}
+
+    .small-figure-description {{
+    text-align: center;
+    font-size: 0.95rem;
+    color: white;
+    line-height: 1.5;
+    margin: 0 auto 12px auto;
+    max-width: 95%;
+    }}
     
     .dashboard-intro {{
         text-align: center;
@@ -976,15 +997,20 @@ with left:
 
     with st.container(border=True):
 
-        st.subheader(
-            "GDP per Person vs CO₂ per Person"
-        )
+        st.html(
+            """
+            <div class="small-figure-header">
+                <div class="small-figure-title">
+                    GDP per Person vs CO₂ per Person
+            </div>
 
-
-        st.write(
-            "Each bubble is a country in the selected year. "
-            "X = GDP per person, Y = CO₂ per person, "
-            "bubble size = population, and color = continent."
+            <div class="small-figure-description">
+                Each bubble is a country in the selected year.
+                X = GDP per person, Y = CO₂ per person,
+                bubble size = population, and color = continent.
+            </div>
+        </div>
+        """
         )
 
 
@@ -1105,14 +1131,18 @@ with right:
 
     with st.container(border=True):
 
-        st.subheader(
-            "CO₂ Emissions per Person Over Time"
-        )
+        st.html(
+            """
+        <div class="small-figure-header">
+            <div class="small-figure-title">
+                CO₂ Emissions per Person Over Time
+            </div>
 
-
-        st.write(
-            "CO₂ emissions per person for the "
-            "selected continents over time."
+            <div class="small-figure-description">
+                CO₂ emissions per person for the selected continents over time.
+            </div>
+        </div>
+        """
         )
 
 
@@ -1220,14 +1250,19 @@ with left2:
 
     with st.container(border=True):
 
-        st.subheader(
-            "World CO₂ by Fuel / Industry"
-        )
+        st.html(
+            """
+            <div class="small-figure-header">
+                <div class="small-figure-title">
+                    World CO₂ by Fuel / Industry
+                </div>
 
-
-        st.write(
-            "Stacked area chart of global CO₂ "
-            "emissions split by fuel or industry type."
+                <div class="small-figure-description">
+                    Stacked area chart of global CO₂ emissions
+                    split by fuel or industry type.
+                </div>
+            </div>
+            """
         )
 
 
@@ -1389,15 +1424,19 @@ with right2:
 
     with st.container(border=True):
 
-        st.subheader(
-            "Avg Temperature Change from CO₂ by Continent"
-        )
+        st.html(
+            """
+            <div class="small-figure-header">
+                <div class="small-figure-title">
+                    Avg Temperature Change from CO₂ by Continent
+                </div>
 
-
-        st.write(
-            "Average temperature change from CO₂ "
-            "emissions (°C) across continents for "
-            "the selected time span."
+                <div class="small-figure-description">
+                    Average temperature change from CO₂ emissions (°C)
+                    across continents for the selected time span.
+                </div>
+            </div>
+            """
         )
 
 
