@@ -824,7 +824,7 @@ max_emissions = float(
     )
 
 
-    fig_map = px.choropleth(
+fig_map = px.choropleth(
         dff_map,
         locations="iso_code",
         color="total_ghg",
@@ -846,7 +846,7 @@ max_emissions = float(
     )
 
 
-    fig_map.update_geos(
+fig_map.update_geos(
         fitbounds="locations",
         projection_type="natural earth",
         projection_scale=1.4,
@@ -856,7 +856,7 @@ max_emissions = float(
     )
 
 
-    fig_map.update_layout(
+fig_map.update_layout(
 
         height=520,
 
