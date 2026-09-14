@@ -497,11 +497,17 @@ def apply_plot_style(fig, height=520):
     return fig
 
 
-def metric_card(
-    title,
-    value,
-    subtitle
-):
+def metric_card(title, value, subtitle):
+    st.markdown(
+        f"""
+<div class="metric-card">
+<div class="metric-title">{title}</div>
+<div class="metric-value">{value}</div>
+<div class="metric-subtitle">{subtitle}</div>
+</div>
+""",
+        unsafe_allow_html=True,
+    ):
 
     st.markdown(
         f"""
