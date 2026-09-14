@@ -83,6 +83,63 @@ st.markdown(
         opacity: 0.92;
     }}
 
+    .dashboard-header {{
+    text-align: center;
+    margin-bottom: 25px;
+    }
+
+    .dashboard-title {{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: white;
+    }
+
+    .dashboard-description {{
+    text-align: center;
+    font-size: 1.08rem;
+    color: white;
+    margin: 0 auto;
+    max-width: 1200px;
+    }
+
+    .figure-header {{
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+     .figure-title {{
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+     }
+
+     .figure-description {{
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+    margin: 0 auto 18px auto;
+    max-width: 1000px;
+     }
+
+     .year-label {{
+    text-align: center;
+    color: white;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    }
+
+/* Center horizontal radio buttons */
+div[data-testid="stRadio"] > div {{
+    justify-content: center;
+}
+
+div[data-testid="stRadio"] [role="radiogroup"] {{
+    justify-content: center;
+}}
+    
     .dashboard-intro {{
         text-align: center;
         font-size: 1.08rem;
