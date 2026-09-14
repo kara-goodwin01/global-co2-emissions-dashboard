@@ -758,39 +758,37 @@ with st.container(border=True):
         """
     )
 
+    # Years that actually exist in the dataset
+    available_years = set(
+        df_co2["year"]
+        .dropna()
+        .astype(int)
+        .unique()
+    )
 
+    # Only show these benchmark years if they exist
     map_year_options = [
-
         year
-
-        for year in [
-            1960,
-            1980,
-            2000,
-            2020
-        ]
-
+        for year in [1960, 1980, 2000, 2020]
         if year in available_years
     ]
 
-
     st.html(
-    """
-    <div class="year-label">
-        Select a year
-    </div>
-    """
-)
+        """
+        <div class="year-label">
+            Select a year
+        </div>
+        """
+    )
 
-selected_year = st.radio(
-    "Select a year",
-    options=map_year_options,
-    horizontal=True,
-    label_visibility="collapsed",
-)
+    selected_year = st.radio(
+        "Select a year",
+        options=map_year_options,
+        horizontal=True,
+        label_visibility="collapsed",
+    )
 
-
-df_ghg_map = df_co2.loc[
+    df_ghg_map = df_co2.loc[
         df_co2["iso_code"].notna(),
         [
             "country",
@@ -802,51 +800,37 @@ df_ghg_map = df_co2.loc[
         subset=["total_ghg"]
     )
 
-
-dff_map = df_ghg_map[
-        df_ghg_map["year"]
-        ==
-        selected_year
+    dff_map = df_ghg_map[
+        df_ghg_map["year"] == selected_year
     ]
 
-
-min_emissions = float(
-        df_ghg_map[
-            "total_ghg"
-        ].min()
+    min_emissions = float(
+        df_ghg_map["total_ghg"].min()
     )
 
-
-max_emissions = float(
-        df_ghg_map[
-            "total_ghg"
-        ].max()
+    max_emissions = float(
+        df_ghg_map["total_ghg"].max()
     )
 
-
-fig_map = px.choropleth(
+    fig_map = px.choropleth(
         dff_map,
         locations="iso_code",
         color="total_ghg",
         hover_name="country",
         color_continuous_scale="Oranges",
-
         range_color=(
             min_emissions,
             max_emissions
         ),
-
         labels={
             "total_ghg":
-            "Annual GHG emissions incl. "
-            "land use (million tonnes)"
+            "Annual GHG emissions incl. land use "
+            "(million tonnes)"
         },
-
         scope="world",
     )
 
-
-fig_map.update_geos(
+    fig_map.update_geos(
         fitbounds="locations",
         projection_type="natural earth",
         projection_scale=1.4,
@@ -855,9 +839,7 @@ fig_map.update_geos(
         bgcolor="rgba(0,0,0,0)",
     )
 
-
-fig_map.update_layout(
-
+    fig_map.update_layout(
         height=520,
 
         margin=dict(
@@ -879,7 +861,6 @@ fig_map.update_layout(
         ),
 
         coloraxis_colorbar=dict(
-
             orientation="h",
 
             x=0.5,
@@ -906,8 +887,7 @@ fig_map.update_layout(
         ),
     )
 
-
-st.plotly_chart(
+    st.plotly_chart(
         fig_map,
         width="stretch",
         theme=None
