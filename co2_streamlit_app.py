@@ -790,7 +790,7 @@ selected_year = st.radio(
 )
 
 
-    df_ghg_map = df_co2.loc[
+df_ghg_map = df_co2.loc[
         df_co2["iso_code"].notna(),
         [
             "country",
@@ -803,7 +803,7 @@ selected_year = st.radio(
     )
 
 
-    dff_map = df_ghg_map[
+dff_map = df_ghg_map[
         df_ghg_map["year"]
         ==
         selected_year
