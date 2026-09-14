@@ -507,7 +507,7 @@ def metric_card(title, value, subtitle):
 </div>
 """,
         unsafe_allow_html=True,
-    ):
+    )
 
     st.markdown(
         f"""
